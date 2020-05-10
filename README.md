@@ -1,2 +1,2 @@
-# Fefugee-Issue-Analysis
-Analyzing prevalent topics of news media about refugee issue in South Korea and sentiment in the comments
+# Refugee-Issue-Text-Analysis
+Explore prevalent topics of news media about refugee issue in South Korea and sentiment in the comments
