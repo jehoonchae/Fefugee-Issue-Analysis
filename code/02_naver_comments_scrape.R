@@ -1,17 +1,18 @@
 # remotes::install_github("forkonlp/DNH4")
 # library(DNH4)
-# library(tidyverse)
+# library(tidyverse) # Easily Install and Load the 'Tidyverse'
 # comments_daum <- DNH4::getAllComment("http://v.media.daum.net/v/20180513202105651")
 # comments_daum <- as_tibble(comments_daum)
 # glimpse(comments_daum)
 # remotes::install_github("forkonlp/N2H4")
 
 # Scrape the comments for NAVER articles
-library(tidyverse)
-library(readr)
-library(lubridate)
 
-url_naver <- read_csv('data/url/naver/url_list.csv', col_names = TRUE)
+library(tidyverse) # Easily Install and Load the 'Tidyverse'
+library(readr) # Read Rectangular Text Data
+library(lubridate) # Make Dealing with Dates a Little Easier
+
+url_naver <- read_csv('data_raw/url/naver/url_list_naver.csv', col_names = TRUE)
 
 # # If date NA fill
 # for (i in 1:nrow(url_naver)){
@@ -37,3 +38,4 @@ for (i in 1:nrow(url_naver)){
 # sort(files)
 # data_list = lapply(files, read.table, header = TRUE)
 # df <- do.call(rbind, data_list)
+
