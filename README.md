@@ -1,12 +1,14 @@
 # Refugee-Issue-Text-Analysis
 Explore prevalent topics of news media about refugee issue in South Korea and sentiment in the comments
 
-## Procedure
+## Process
 
-1. Scrape news article and comments about refugee issue in Naver and Daum (portal where serve most of the news from news media in South Korea)
+1. Parse HTML of online news article including the term 'refugee'(in Korean) in Naver and Daum (portals where serve most of the news articles in South Korea)
 
-2. Classify topics of news with unsupervised method (Structural Topic Model)
+2. Scrape news article and comments
 
-3. Calculate negative sentiment score of news comments
+3. Classify topics of the article with unsupervised method (structural topic modeling)
 
-4. Explore user diversity of news comments in each news post
+4. Caculates negative sentiment score of the user comments
+
+5. Compare the relationship between the topics and sentiments of the user comments.

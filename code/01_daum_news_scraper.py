@@ -128,11 +128,31 @@ def extractarticle(url):
 result = []
 
 for i, url in enumerate(url_list):
-    # if len(i)%1000 == 0:
-    #     print(f'{round(i/len(url_list)*100, 2)}% Done')
+    if i%100 == 0:
+        print(f'{round(i/len(url_list)*100, 2)}% Done')
     result.append(list(extractarticle(url)))
 
-from pandas import DataFrame
+url = []
+pubtime = []
+press = []
+title = []
+article = []
 
-df = DataFrame(result).transpose()
-df.to_csv('NuclearEnergy/Data/chungang.csv', header=['pubtime', 'press', 'article'])
+for i in result:
+    url.append(i[0])
+    pubtime.append(i[1])
+    press.append(i[2])
+    title.append(i[3])
+    article.append(i[4])
+
+import pandas as pd
+
+# df = DataFrame(result).transpose()
+df = pd.DataFrame({'url':url, 'pubtime':pubtime, 'press':press, 'title':title, 'article':article})
+article = [articlepre(i) for i in list(df['article'])]
+df['article'] = article
+title = [articlepre(i) for i in list(df['title'])]
+df['title'] = title
+
+df.head()
+df.to_csv('data_raw/article/daum_news_article.csv')
