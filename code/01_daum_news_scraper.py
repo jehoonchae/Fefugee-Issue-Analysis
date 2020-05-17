@@ -105,16 +105,6 @@ def extractarticle(url):
     user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
     headers = {'User-Agent': user_agent}
     soup = BeautifulSoup(requests.get(url).text, 'lxml')
-    # if soup.find('span', class_='txt_info') == None and soup.find('span', class_='num ff_tahoma') == None:
-    #     pubtime = re.sub("\.", "-",
-    #                      re.findall("[0-9]{4}.[0-9]{2}.[0-9]{2}", soup.find('span', class_='txt_info').text)[0])
-    #     press = '중앙일보'
-    #     article = soup.find('section').text
-    # elif soup.find('span', class_='num ff_tahoma') != None:
-    #     pubtime = re.sub("\.", "-",
-    #                      re.findall("[0-9]{4}.[0-9]{2}.[0-9]{2}", soup.find('span', class_='num ff_tahoma').text)[0])
-    #     press = '중앙일보'
-    #     article = soup.find('section').text
     try:
         pubtime = re.sub("\.", "-", re.findall("[0-9]{4}.[0-9]{2}.[0-9]{2}", soup.find_all('span', class_='txt_info')[-1].text)[0])
         press = soup.find('meta', {"name" : "article:media_name"}).get('content')
