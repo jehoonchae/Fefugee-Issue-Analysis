@@ -132,18 +132,11 @@ for i, url in enumerate(url_list):
         print(f'{round(i/len(url_list)*100, 2)}% Done')
     result.append(list(extractarticle(url)))
 
-url = []
-pubtime = []
-press = []
-title = []
-article = []
-
-for i in result:
-    url.append(i[0])
-    pubtime.append(i[1])
-    press.append(i[2])
-    title.append(i[3])
-    article.append(i[4])
+url = [i[0] for i in result]
+pubtime = [i[1] for i in result]
+press = [i[2] for i in result]
+title = [i[3] for i in result]
+article = [i[4] for i in result]
 
 import pandas as pd
 
